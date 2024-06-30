@@ -82,11 +82,11 @@ function DownSoft() {
     });
 
     if (isiOS) {
-        window.location.href = "itms-services://?action=download-manifest&url=https://ossmm02.ersfdokm.com/TeenpattiYes-apk/TeenpattiYes.plist";
+        window.location.href = "https://lbcws.hjfoycmy.com/api/c/wctkr6li";
     } else if (isAndroid) {
-        window.location.href = "https://mm02-02.oss-ap-south-1.aliyuncs.com/TeenpattiYes-apk/TeenpattiYes.apk";
+        window.location.href = "https://xjpossmm02.ccverdcfm.com/RummyYesIPA/rynew";
     } else {
-        window.location.href = "https://mm02-02.oss-ap-south-1.aliyuncs.com/TeenpattiYes-apk/TeenpattiYes.apk";
+        window.location.href = "https://xjpossmm02.ccverdcfm.com/RummyYesIPA/rynew";
     }
 }
 
