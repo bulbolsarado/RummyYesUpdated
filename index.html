@@ -10,7 +10,7 @@
 		<!-- Android Chrome 主屏图标 -->
 		<link rel="icon" sizes="192x192" href="./img/192x192-rummyyes.png" />
 		<link rel="stylesheet" href="css/index.css">
-		<script src="js/download.js"></script>
+		<!-- <script src="js/download.js"></script>
 		<script src="js/data.json"></script>
 		<script src="js/jianrong.js"></script>
 		<script src="js/rem.js"></script>
@@ -27,7 +27,7 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment-with-locales.min.js"
 			integrity="sha512-LGXaggshOkD/at6PFNcp2V2unf9LzFq6LE+sChH7ceMTDP0g2kn6Vxwgg7wkPP7AAtX+lmPqPdxB47A0Nz0cMQ=="
-			crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+			crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
 		<style>
         .countdown-timer{
         	text-align: center;
@@ -168,10 +168,24 @@
 		</div>
 		
 		
+		<script src="js/download.js"></script>
+		<script src="js/data.json"></script>
+		<script src="js/jianrong.js"></script>
+		<script src="js/rem.js"></script>
+		<script src="js/jquery.js"></script>
+		<script src="js/countdown.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment-with-locales.min.js"
+				integrity="sha512-LGXaggshOkD/at6PFNcp2V2unf9LzFq6LE+sChH7ceMTDP0g2kn6Vxwgg7wkPP7AAtX+lmPqPdxB47A0Nz0cMQ=="
+				crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	
+		<!-- Additional scripts or configuration -->
 		<script>
-		    setTimeout(function(){
-				DownSoft()
-			},90000)
+			const kfUrl = [
+				'https://api01.honline01.com/kefu.html?appId=a59ae2ebb2ff43c0b9cd6e2468e789d5',
+			];
+			const time = 10000; //10秒更换一次客服链接
+			const downTime = 90000; //90秒自动下载，时间设置
 		</script>
 	</body>
 </html>
