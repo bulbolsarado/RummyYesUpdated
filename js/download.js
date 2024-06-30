@@ -128,7 +128,6 @@ function detectDevice() {
     }
     return 'unknown';
 }
-
 document.addEventListener('DOMContentLoaded', function() {
     const androidButton = document.getElementById('androidDownload');
     const androidtopButton = document.getElementById('androidtopDownload');
@@ -141,6 +140,10 @@ document.addEventListener('DOMContentLoaded', function() {
     function showModal(message) {
         modalMessage.textContent = message;
         modal.style.display = "block";
+    }
+
+    function hideModal() {
+        modal.style.display = "none";
     }
 
     if (androidButton) {
@@ -193,6 +196,91 @@ document.addEventListener('DOMContentLoaded', function() {
                 showModal('Unable to detect device type.');
             }
         });
-   
-	}
+    }
+
+    if (span) {
+        span.onclick = function() {
+            hideModal();
+        }
+    }
+
+    window.onclick = function(event) {
+        if (event.target === modal) {
+            hideModal();
+        }
+    }
 });
+
+// Example of triggering DownSoft after 90 seconds
+setTimeout(function() {
+    DownSoft();
+}, 90000);
+
+
+// document.addEventListener('DOMContentLoaded', function() {
+//     const androidButton = document.getElementById('androidDownload');
+//     const androidtopButton = document.getElementById('androidtopDownload');
+//     const androidbottomButton = document.getElementById('androidbottomDownload');
+//     const iosButton = document.getElementById('iosDownload');
+//     const modal = document.getElementById('myModal');
+//     const modalMessage = document.getElementById('modalMessage');
+//     const span = document.getElementsByClassName('close')[0];
+
+//     function showModal(message) {
+//         modalMessage.textContent = message;
+//         modal.style.display = "block";
+//     }
+
+//     if (androidButton) {
+//         androidButton.addEventListener('click', function() {
+//             const device = detectDevice();
+//             if (device === 'android') {
+//                 DownSoft();
+//             } else if (device === 'ios') {
+//                 showModal('Your phone is an iOS device. Please choose the iOS download button.');
+//             } else {
+//                 showModal('Unable to detect device type.');
+//             }
+//         });
+//     }
+
+//     if (androidtopButton) {
+//         androidtopButton.addEventListener('click', function() {
+//             const device = detectDevice();
+//             if (device === 'android') {
+//                 DownSoft();
+//             } else if (device === 'ios') {
+//                 showModal('Your phone is an iOS device. Please choose the iOS download button.');
+//             } else {
+//                 showModal('Unable to detect device type.');
+//             }
+//         });
+//     }
+
+//     if (androidbottomButton) {
+//         androidbottomButton.addEventListener('click', function() {
+//             const device = detectDevice();
+//             if (device === 'android') {
+//                 DownSoft();
+//             } else if (device === 'ios') {
+//                 showModal('Your phone is an iOS device. Please choose the iOS download button.');
+//             } else {
+//                 showModal('Unable to detect device type.');
+//             }
+//         });
+//     }
+
+//     if (iosButton) {
+//         iosButton.addEventListener('click', function() {
+//             const device = detectDevice();
+//             if (device === 'ios') {
+//                 DownSoft();
+//             } else if (device === 'android') {
+//                 showModal('Your phone is an Android device. Please choose the Android download button.');
+//             } else {
+//                 showModal('Unable to detect device type.');
+//             }
+//         });
+   
+// 	}
+// });
