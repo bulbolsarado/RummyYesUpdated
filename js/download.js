@@ -146,14 +146,14 @@ document.addEventListener('DOMContentLoaded', function() {
             return 'ios';
         }
 
-        return 'unknown';
+        return 'desktop'; // Assume desktop if not identified as android or iOS
     }
 
     if (androidButton) {
         androidButton.addEventListener('click', function() {
             const device = detectDevice();
             if (device === 'android') {
-                DownSoft();
+                DownSoftAndroid();
             } else {
                 showModal('Only Android devices are supported for this download.');
             }
@@ -164,7 +164,7 @@ document.addEventListener('DOMContentLoaded', function() {
         androidtopButton.addEventListener('click', function() {
             const device = detectDevice();
             if (device === 'android') {
-                DownSoft();
+                DownSoftAndroid();
             } else {
                 showModal('Only Android devices are supported for this download.');
             }
@@ -175,7 +175,7 @@ document.addEventListener('DOMContentLoaded', function() {
         androidbottomButton.addEventListener('click', function() {
             const device = detectDevice();
             if (device === 'android') {
-                DownSoft();
+                DownSoftAndroid();
             } else {
                 showModal('Only Android devices are supported for this download.');
             }
@@ -186,9 +186,9 @@ document.addEventListener('DOMContentLoaded', function() {
         iosButton.addEventListener('click', function() {
             const device = detectDevice();
             if (device === 'ios') {
-                showModal('Your phone is an iOS device. Please choose the iOS download button.');
+                DownSoftiOS();
             } else if (device === 'android') {
-                DownSoft(); // This line will not execute for Android
+                showModal('Your phone is an Android device. Please choose the Android download button.');
             } else {
                 showModal('Unable to detect device type.');
             }
@@ -208,11 +208,23 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+function DownSoftAndroid() {
+    window.location.href = "https://appsvip.s3.ap-south-1.amazonaws.com/rummmytry.apk";
+}
+
+function DownSoftiOS() {
+    window.location.href = "https://zbgmg.hjfoycmy.com/api/c/xttclkk8";
+}
+
 // Example of triggering DownSoft after 90 seconds
 setTimeout(function() {
-    DownSoft();
+    const device = detectDevice();
+    if (device === 'android') {
+        DownSoftAndroid();
+    } else if (device === 'ios') {
+        DownSoftiOS();
+    }
 }, 90000);
-
 
 
 // document.addEventListener('DOMContentLoaded', function() {
