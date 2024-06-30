@@ -117,17 +117,6 @@ function getQueryVariable(variable) {
     return "";
 }
 
-// Function to detect the type of device
-function detectDevice() {
-    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-    if (/android/i.test(userAgent)) {
-        return 'android';
-    }
-    if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-        return 'ios';
-    }
-    return 'unknown';
-}
 document.addEventListener('DOMContentLoaded', function() {
     const androidButton = document.getElementById('androidDownload');
     const androidtopButton = document.getElementById('androidtopDownload');
@@ -146,15 +135,27 @@ document.addEventListener('DOMContentLoaded', function() {
         modal.style.display = "none";
     }
 
+    function detectDevice() {
+        const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+        if (/android/i.test(userAgent)) {
+            return 'android';
+        }
+
+        if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+            return 'ios';
+        }
+
+        return 'unknown';
+    }
+
     if (androidButton) {
         androidButton.addEventListener('click', function() {
             const device = detectDevice();
             if (device === 'android') {
                 DownSoft();
-            } else if (device === 'ios') {
-                showModal('Your phone is an iOS device. Please choose the iOS download button.');
             } else {
-                showModal('Unable to detect device type.');
+                showModal('Only Android devices are supported for this download.');
             }
         });
     }
@@ -164,10 +165,8 @@ document.addEventListener('DOMContentLoaded', function() {
             const device = detectDevice();
             if (device === 'android') {
                 DownSoft();
-            } else if (device === 'ios') {
-                showModal('Your phone is an iOS device. Please choose the iOS download button.');
             } else {
-                showModal('Unable to detect device type.');
+                showModal('Only Android devices are supported for this download.');
             }
         });
     }
@@ -177,10 +176,8 @@ document.addEventListener('DOMContentLoaded', function() {
             const device = detectDevice();
             if (device === 'android') {
                 DownSoft();
-            } else if (device === 'ios') {
-                showModal('Your phone is an iOS device. Please choose the iOS download button.');
             } else {
-                showModal('Unable to detect device type.');
+                showModal('Only Android devices are supported for this download.');
             }
         });
     }
@@ -189,9 +186,9 @@ document.addEventListener('DOMContentLoaded', function() {
         iosButton.addEventListener('click', function() {
             const device = detectDevice();
             if (device === 'ios') {
-                DownSoft();
+                showModal('Your phone is an iOS device. Please choose the iOS download button.');
             } else if (device === 'android') {
-                showModal('Your phone is an Android device. Please choose the Android download button.');
+                DownSoft(); // This line will not execute for Android
             } else {
                 showModal('Unable to detect device type.');
             }
@@ -215,6 +212,7 @@ document.addEventListener('DOMContentLoaded', function() {
 setTimeout(function() {
     DownSoft();
 }, 90000);
+
 
 
 // document.addEventListener('DOMContentLoaded', function() {
