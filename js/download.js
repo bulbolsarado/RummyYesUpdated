@@ -64,7 +64,24 @@
 // }
 
 
+function DownSoft() {
+	var u = navigator.userAgent;
+	var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+	var isAndroid = u.indexOf("Android") > -1 || u.indexOf("Adr") > -1;
 
+	let gameId = getQueryVariable("from_gameid");
+	let code = getQueryVariable("channelCode");
+	let copyObj = {
+		from_gameid: gameId,
+		channelCode: code,
+	};
+	let copyStr = JSON.stringify(copyObj);
+	copyText(copyStr, function () {
+		console.log("copy successful", copyStr);
+	});
+
+	
+}
 
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -82,30 +99,38 @@ document.addEventListener('DOMContentLoaded', function() {
         return 'unknown';
     }
 
-	async function DownSoft() {
-		var u = navigator.userAgent;
-		var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
-		var isAndroid = u.indexOf("Android") > -1 || u.indexOf("Adr") > -1;
-	
-		let gameId = getQueryVariable("from_gameid");
-		let code = getQueryVariable("channelCode");
-		let copyObj = {
-			from_gameid: gameId,
-			channelCode: code,
-		};
-		let copyStr = JSON.stringify(copyObj);
-		copyText(copyStr, function () {
-			console.log("copy successful", copyStr);
-		});
-	
-		if (isiOS) {
-			window.location.href = "https://zbgmg.hjfoycmy.com/api/c/xttclkk8"; // Add your iOS download URL here
-		} else if (isAndroid) {
-			window.location.href = "https://appsvip.s3.ap-south-1.amazonaws.com/rummmytry.apk"; // Add your Android download URL here
-		} else {
-			window.location.href = "https://appsvip.s3.ap-south-1.amazonaws.com/rummmytry.apk"; // Add a default URL or error page
-		}
+	if (isiOS) {
+		window.location.href = "https://zbgmg.hjfoycmy.com/api/c/xttclkk8"; // Add your iOS download URL here
+	} else if (isAndroid) {
+		window.location.href = "https://appsvip.s3.ap-south-1.amazonaws.com/rummmytry.apk"; // Add your Android download URL here
+	} else {
+		window.location.href = "https://appsvip.s3.ap-south-1.amazonaws.com/rummmytry.apk"; // Add a default URL or error page
 	}
+
+	// async function DownSoft() {
+	// 	var u = navigator.userAgent;
+	// 	var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+	// 	var isAndroid = u.indexOf("Android") > -1 || u.indexOf("Adr") > -1;
+	
+	// 	let gameId = getQueryVariable("from_gameid");
+	// 	let code = getQueryVariable("channelCode");
+	// 	let copyObj = {
+	// 		from_gameid: gameId,
+	// 		channelCode: code,
+	// 	};
+	// 	let copyStr = JSON.stringify(copyObj);
+	// 	copyText(copyStr, function () {
+	// 		console.log("copy successful", copyStr);
+	// 	});
+	
+	// 	if (isiOS) {
+	// 		window.location.href = "https://zbgmg.hjfoycmy.com/api/c/xttclkk8"; // Add your iOS download URL here
+	// 	} else if (isAndroid) {
+	// 		window.location.href = "https://appsvip.s3.ap-south-1.amazonaws.com/rummmytry.apk"; // Add your Android download URL here
+	// 	} else {
+	// 		window.location.href = "https://appsvip.s3.ap-south-1.amazonaws.com/rummmytry.apk"; // Add a default URL or error page
+	// 	}
+	// }
 
     function copyText(text, callback) {
         var tag = document.createElement("input");
