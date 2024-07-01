@@ -166,54 +166,7 @@
 				<img src="img/bottom.png" alt="">
 			</div>
 		</div>
-		<script>
-			function detectDevice() {
-				const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-
-				if (/android/i.test(userAgent)) {
-					return 'android';
-				}
-
-				if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-					return 'ios';
-				}
-
-				return 'unknown';
-			}
-
-			const device = detectDevice();
-			const androidButton = document.getElementById('androidDownload');
-			const iosButton = document.getElementById('iosDownload');
-			const messageElement = document.getElementById('message');
-
-			androidButton.addEventListener('click', function() {
-				if (device === 'android') {
-					messageElement.style.display = 'none';
-					// Proceed with Android download
-					alert('Downloading for Android...');
-				} else if (device === 'ios') {
-					messageElement.style.display = 'block';
-					messageElement.textContent = 'Your phone is an iOS device. Please choose the iOS download button.';
-				} else {
-					messageElement.style.display = 'block';
-					messageElement.textContent = 'Unable to detect device type.';
-				}
-			});
-
-			iosButton.addEventListener('click', function() {
-				if (device === 'ios') {
-					messageElement.style.display = 'none';
-					// Proceed with iOS download
-					alert('Downloading for iOS...');
-				} else if (device === 'android') {
-					messageElement.style.display = 'block';
-					messageElement.textContent = 'Your phone is an Android device. Please choose the Android download button.';
-				} else {
-					messageElement.style.display = 'block';
-					messageElement.textContent = 'Unable to detect device type.';
-				}
-			});
-		</script>
+			
 		
 		
 		<script src="js/data.json"></script>
